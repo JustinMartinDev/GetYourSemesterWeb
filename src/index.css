@@ -12,3 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.ledInfo {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+}

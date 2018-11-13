@@ -19,20 +19,16 @@ code {
   border-radius: 50%;
 }
 
-.sidenav-fixed{
-  top: 64px!important;
+.dashboard{
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-main, footer {
-  padding-left: 300px;
+body {
+    background-color: #F2F3F4;
 }
 
-@media only screen and (max-width : 992px) {
-  main, footer {
-    padding-left: 0;
-  }
-}
-
-.dashboard-navigation-item:hover{
-  background-color: antiquewhite;
+.dashboard .tableElement {
+    background-color: #ffffff;
+    margin-bottom: 20px;
 }

@@ -1,19 +1,21 @@
 import {Component} from "react";
 import React from "react";
-import DashboardNavigation from './DashboardNavigation';
+import DashboardTable from './DashboardTable';
 
 class Dashboard extends Component {
     render() {
         return (
-            <div className="dashboard row">
-
-                <div className="col s3">
-                    <DashboardNavigation/>
+            <div className="dashboard container">
+                <div className="row valign-wrapper">
+                    <div className="col s7s">
+                        <h4>Liste des cours </h4>
+                    </div>
+                    <div className="col s3">
+                        <a className="waves-effect waves-light btn"><i
+                            className="material-icons left">add</i>NOUVEAU COURS</a>
+                    </div>
                 </div>
-
-                <div className="col s9">
-                </div>
-
+                <DashboardTable/>
             </div>
 
         );

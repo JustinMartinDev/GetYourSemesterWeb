@@ -1,6 +1,1 @@
-import StateBox from 'StateBox'
-
-
-export {
-    StateBox
-};
+export { default as StateBox } from './StateBox';

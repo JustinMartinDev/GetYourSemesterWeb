@@ -30,7 +30,7 @@ class StateBox extends Component{
     render(){
             return (
                 <div className=
-                 {"row scale-transition " +
+                 {"row scale-transition low-margin-bottom " +
                  (this.state.valueElement === this.state.valueConditionToShow ?
                     "scale-in" :
                     "scale-out")

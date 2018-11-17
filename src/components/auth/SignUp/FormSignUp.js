@@ -106,7 +106,7 @@ class FormSignUp extends Component {
                         />
                     </div>
                 </div>
-                <div className="row low-margin-bottom">
+                <div className="row">
                     <div className="col s6">
                         <CheckBoxField
                             handleChange={this.handleChange}

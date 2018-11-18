@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {InputField, CheckBoxField, RadioButtonField} from '../../Form';
-import {StateBox} from '../../Utils';
-
-const regExEmailUniv = new RegExp('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]*univ([a-zA-Z0-9-]*)\\.([a-zA-Z0-9-]+)', 'i');
+import {InputField, CheckBoxField, RadioButtonField} from '../Form';
+import {StateBox} from '../Utils';
+import {checkValidateEmail, checkValidateAgreeCGU, checkValidatePassword, checkValidateRePassword, checkValidateTypeAccount} from './ValidationFunction.js';
 
 class FormSignUp extends Component {
     constructor(props){
@@ -11,18 +10,21 @@ class FormSignUp extends Component {
             value : {
                 email: "",
                 password: "",
+                repassword: "",
                 typeAccount: "",
                 agreeCGU: "",
             },
             class : {
                 email : "",
                 password : "",
+                repassword: "",
                 typeAccount: "",
                 agreeCGU: ""
             },
             valid : {
                 email : false,
                 password : false,
+                repassword: false,
                 typeAccount : false,
                 agreeCGU : false
             },
@@ -31,6 +33,7 @@ class FormSignUp extends Component {
         this.validateFunctionArray = {
             email : checkValidateEmail,
             password : checkValidatePassword,
+            repassword : checkValidateRePassword,
             typeAccount : checkValidateTypeAccount,
             agreeCGU : checkValidateAgreeCGU
         };
@@ -42,7 +45,6 @@ class FormSignUp extends Component {
         let newState = this.validateFunctionArray[event.target.getAttribute("dataname")](this.state, event);
         newState.formValid = true;
         const arr = Object.keys(newState.valid).map(function(k) { return newState.valid[k] });
-        console.log(arr);
         arr.map(valid => ( newState.formValid &= valid));
         this.setState(newState);
     }
@@ -84,7 +86,23 @@ class FormSignUp extends Component {
                         />
                     </div>
                 </div>
-
+                <div className="row low-margin-bottom">
+                    <div className="col s6 input-field">
+                        <InputField
+                            className={this.state.class.repassword}
+                            handleChange={this.handleChange}
+                            dataName="repassword"
+                            value={this.state.value.repassword}
+                            type="password"
+                            text="Re-password"
+                            id="repassword-input"
+                            icon="lock"
+                            textHelper="Entrer de nouveau votre password"
+                            textError="Mot de passe différent"
+                            textSuccess="Mot de passe identique"
+                        />
+                    </div>
+                </div>
                 <div className="row valign-wrapper low-margin-bottom">
                     <div className="col s1 element-with-state-box">
                         <RadioButtonField
@@ -129,47 +147,6 @@ class FormSignUp extends Component {
             </form>
         );
     }
-}
-
-function checkValidateEmail(newState, event) {
-    if (regExEmailUniv.exec(event.target.value)) {
-        newState.value.email = event.target.value;
-        if(!(newState.class.email === "valid")){
-            newState.class.email = newState.class.email.replace("invalid","valid");
-            newState.valid.email = true;
-        }
-    }
-    else if(!newState.class.email.includes("invalid")) {
-        newState.class.email = newState.class.email.replace("valid", "");
-        newState.class.email += "invalid";
-        newState.valid.email = false;
-    }
-    return newState;
-}
-function checkValidatePassword(newState, event) {
-    if (event.target.value.length > 6) {
-        newState.value.password = event.target.value;
-        if(!(newState.class.password === "valid")) {
-            newState.class.password = newState.class.password.replace("invalid", "valid");
-            newState.valid.password = true;
-        }
-    }
-    else if(!newState.class.password.includes("invalid")) {
-        newState.class.password = newState.class.password.replace("valid", "");
-        newState.class.password += "invalid";
-        newState.valid.password = false;
-    }
-    return newState
-}
-function checkValidateTypeAccount(newState, event) {
-    newState.value.typeAccount = event.target.getAttribute("valueInput");
-    newState.valid.typeAccount = true;
-    return newState;
-}
-function checkValidateAgreeCGU(newState, event) {
-    newState.value.agreeCGU = event.target.checked;
-    newState.valid.agreeCGU = event.target.checked;
-    return newState;
 }
 
 export default FormSignUp;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import "./StateBox.css";
 
 class StateBox extends Component{
     constructor(props) {
@@ -15,8 +15,7 @@ class StateBox extends Component{
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState(
-            this.state = {
+        this.setState({
                 classColor : nextProps.classColor,
                 icon : nextProps.icon,
                 text : nextProps.text,
@@ -37,7 +36,7 @@ class StateBox extends Component{
                 }>
                     <div className={"col s6 border-raduis " + this.state.classColor}>
                         <div className="col s1">
-                            <i className="material-icons">{this.state.icon}</i>
+                            <i className="low-padding-left material-icons">{this.state.icon}</i>
                         </div>
                         <div className="col s11">
                             <span><b>{this.state.title} : </b> {this.state.text}</span>

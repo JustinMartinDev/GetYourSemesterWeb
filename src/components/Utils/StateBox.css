@@ -1,0 +1,25 @@
+.state-box-col {
+    margin-left: 2rem!important;
+}
+
+.element-with-state-box {
+    margin-left: 0!important;
+    margin-bottom: 0.75rem;
+}
+
+.border-raduis {
+    border: 1px solid;
+    border-radius: .5em;
+    font-size: 1.0625rem;
+    margin: 1.5rem 0;
+    padding: 0.75em 0rem 0.75rem 0.75rem!important;
+}
+
+.warning-border {
+    border-color: orangered;
+    color: orangered;
+}
+
+.low-padding-left {
+    padding-left: 4px!important;
+}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
+import Navbar from './components/Layout/Navbar';
 import Dashboard from "./components/dashboard/Dashboard";
-import SignUp from './components/auth/SignUp';
+import SignUp from './components/Auth/SignUp';
 
 
 class App extends Component {

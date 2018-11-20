@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {InputField, CheckBoxField, RadioButtonField} from '../Form';
-import {StateBox} from '../Utils';
-import {checkValidateEmail, checkValidateAgreeCGU, checkValidatePassword, checkValidateRePassword, checkValidateTypeAccount} from './ValidationFunction.js';
+import {InputField, CheckBoxField, RadioButtonField} from '../../components/Form';
+import {StateBox} from '../../components/Utils';
+import * as AuthFunction from '../Functions/AuthFunction.js';
 
 class FormSignUp extends Component {
     constructor(props){
@@ -31,11 +31,11 @@ class FormSignUp extends Component {
             formValid : false
         };
         this.validateFunctionArray = {
-            email : checkValidateEmail,
-            password : checkValidatePassword,
-            repassword : checkValidateRePassword,
-            typeAccount : checkValidateTypeAccount,
-            agreeCGU : checkValidateAgreeCGU
+            email : AuthFunction.checkValidateEmail,
+            password : AuthFunction.checkValidatePassword,
+            repassword : AuthFunction.checkValidateRePassword,
+            typeAccount : AuthFunction.checkValidateTypeAccount,
+            agreeCGU : AuthFunction.checkValidateAgreeCGU
         };
         this.handleChange = this.handleChange.bind(this);
         //this.handleSubmit = this.handleSubmit.bind(this);

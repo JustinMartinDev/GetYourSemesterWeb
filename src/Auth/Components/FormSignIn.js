@@ -1,12 +1,48 @@
 import React, {Component} from 'react';
-import {CheckBoxField, InputField, RadioButtonField} from "../Form";
-import {StateBox} from "../Utils";
+import {CheckBoxField, InputField} from "../../components/Form";
+import * as AuthFunction from '../Functions/AuthFunction.js';
 
 class FormSignIn extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            value : {
+                email: "",
+                password: "",
+                stayLogged: "",
+            },
+            class : {
+                email: "",
+                password: "",
+                stayLogged: "",
+
+            },
+            valid : {
+                email: "",
+                password: "",
+                stayLogged: true,
+
+            },
+            formValid : false
+        };
+        this.validateFunctionArray = {
+            email : AuthFunction.checkValidateEmail,
+            password : AuthFunction.checkValidatePassword,
+            stayLogged : function (newData, event) {return newData.value.stayLogged = event.target.checked;}
+        };
+        this.handleChange = this.handleChange.bind(this);
+        //this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleChange(event) {
+        let newState = this.validateFunctionArray[event.target.getAttribute("dataname")](this.state, event);
+        newState.formValid = true;
+        const arr = Object.keys(newState.valid).map(function (k) {
+            return newState.valid[k]
+        });
+        arr.map(valid => (newState.formValid &= valid));
+        this.setState(newState);
+    }
 
     render() {
         return(
@@ -69,3 +105,4 @@ class FormSignIn extends Component{
         );
     }
 }
+export default FormSignIn;

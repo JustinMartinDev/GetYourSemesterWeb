@@ -1,5 +1,5 @@
 
-const regExEmailUniv = new RegExp('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]*univ([a-zA-Z0-9-]*)\\.([a-zA-Z0-9-]+)', 'i');
+const regExEmailUniv = new RegExp('^[a-zA-Z0-9.!#$%&    ’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]*univ([a-zA-Z0-9-]*)\\.([a-zA-Z0-9-]+)', 'i');
 
 export function checkValidateEmail(newState, event){
     if (regExEmailUniv.exec(event.target.value)) {
@@ -55,4 +55,12 @@ export function checkValidateRePassword(newState, event) {
         newState.valid.repassword = false;
     }
     return newState
+}
+
+export function signup(data) {
+    //todo signup with firebase
+}
+
+export function signin(data) {
+    //todo signin with firebase
 }

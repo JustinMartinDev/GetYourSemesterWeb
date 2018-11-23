@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {CheckBoxField, InputField} from "../../components/Form";
+import {CheckBoxField, InputField} from "../../Utils/Form";
 import * as AuthFunction from '../Functions/AuthFunction.js';
 
 class FormSignIn extends Component{
@@ -18,8 +18,8 @@ class FormSignIn extends Component{
 
             },
             valid : {
-                email: "",
-                password: "",
+                email: false,
+                password: false,
                 stayLogged: true,
 
             },
@@ -46,7 +46,7 @@ class FormSignIn extends Component{
 
     render() {
         return(
-            <form className="col s10 offset-s3">
+            <form className="wow fadeIn col s10 offset-s3">
                 <div className="row low-margin-bottom">
                     <div className="col s6 input-field">
                         <InputField

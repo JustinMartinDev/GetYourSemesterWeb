@@ -1,6 +1,7 @@
 import {Component} from "react";
 import React from "react";
 import DashboardTable from './Components/DashboardTable';
+import {    Link} from "react-router-dom";
 
 class Dashboard extends Component {
     render() {
@@ -11,8 +12,10 @@ class Dashboard extends Component {
                         <h4>Liste des cours </h4>
                     </div>
                     <div className="col s3">
-                        <a className="waves-effect waves-light btn"><i
-                            className="material-icons left">add</i>NOUVEAU COURS</a>
+                        <Link to='/dashboard/create' className="white-text waves-effect waves-light btn">
+                            <i className="material-icons left">add</i>
+                            NOUVEAU COURS
+                       </Link>
                     </div>
                 </div>
                 <DashboardTable/>

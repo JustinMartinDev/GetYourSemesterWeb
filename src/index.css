@@ -20,6 +20,10 @@ code {
   border-radius: 50%;
 }
 
+.ledText {
+    margin-left: 1rem;
+}
+
 .dashboard{
     margin-top: 2%;
     margin-bottom: 2%;
@@ -32,4 +36,17 @@ code {
 
 .low-margin-bottom {
     margin-bottom: 7px !important;
+}
+
+.inline-content {
+    display: inline-flex;
+}
+
+.fadeIn{
+    opacity:1;
+    transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+}
+
+.wow{
+    visibility: hidden;
 }

@@ -7,11 +7,23 @@ class DashboardTable extends Component {
 
     render(){
         return(
-            <DashboardItem
-                nomCours="zer"
-                percent="25"
-                online="false"
-            />
+            <React.Fragment>
+                <DashboardItem
+                    nomCours="zer"
+                    percent="25"
+                    online="false"
+                />
+                <DashboardItem
+                    nomCours="myCours"
+                    percent="83"
+                    online="true"
+                />
+                <DashboardItem
+                    nomCours="mySeconde cours"
+                    percent="54"
+                    online="true"
+                />
+            </React.Fragment>
         )
     }
 }

@@ -106,6 +106,7 @@ class FormSignUp extends Component {
                 <div className="row valign-wrapper low-margin-bottom">
                     <div className="col s1 element-with-state-box">
                         <RadioButtonField
+                            labelClassName=""
                             handleChange={this.handleChange}
                             className={this.state.class.typeAccount}
                             dataName="typeAccount"

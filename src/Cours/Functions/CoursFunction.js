@@ -30,7 +30,26 @@ export function checkValidateDescription(newState, event){
     return newState;
 }
 
-
+export function checkValidateProf(newState, event){
+    if (event.target.value.length > 1) {
+        newState.value.profName = event.target.value;
+        if(!(newState.class.profName === "valid")){
+            newState.class.profName = newState.class.profName.replace("invalid","valid");
+            newState.valid.profName = true;
+        }
+    }
+    else if(!newState.class.profName.includes("invalid")) {
+        newState.class.profName = newState.class.profName.replace("valid", "");
+        newState.class.profName += "invalid";
+        newState.valid.profName = false;
+    }
+    return newState;
+}
+export function checkValidateAvatarType(newState, event) {
+    newState.value.avatarType = event.target.getAttribute("valueInput");
+    newState.valid.avatarType = true;
+    return newState;
+}
 export function signup(data) {
     //todo signup with firebase
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import FabricCanvas from './Avatar/FabricCanvas';
 import TemplateList from './Avatar/TemplateList'
 import {bglist, facelist, eyeslist, faciallist, hairlist} from '../../images/templates/templatelist';
@@ -143,9 +143,9 @@ class Avatar extends Component {
 
                 </Col>
 
-            </div>*/
+            </div>
         );
     }
 }
 
-export default Avatar;
+export default Avatar;*/

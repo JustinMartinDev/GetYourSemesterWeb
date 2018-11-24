@@ -1,4 +1,11 @@
-// Faces
+	// Faces
+
+import file from 'file-system';
+file.recurse('path', function(filepath, relative, filename) {
+	if (!filename) return;
+});
+
+
 const facelist = [
 
 	require('./faces/1.png'),
@@ -13,14 +20,12 @@ const facelist = [
 
 // Eyes
 const eyeslist = [
-
 	require('./eyes/1.png'),
 	require('./eyes/2.png'),
 	require('./eyes/3.png'),
 	require('./eyes/4.png'),
 	require('./eyes/5.png'),
 	require('./eyes/6.png'),
-
 ]
 
 

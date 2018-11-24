@@ -18,7 +18,6 @@ class App extends Component {
                 <Route path='/signup' component={SignUp}/>
                 <Route path='/signin' component={SignIn}/>
                 <Route path='/create' component={CreateCours}/>
-                <Route path='/avatar' component={Avatar}/>
             </Switch>
         </div>
     </BrowserRouter>

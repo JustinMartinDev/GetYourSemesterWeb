@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {RadioButtonField} from "../../Utils/Form";
+import {RadioButtonField} from "../../../Utils/Form";
 import StateInputFile from './StateInputFile';
-import "../../Utils/jQueryLoading";
+import "../../../Utils/jQueryLoading";
 
 
 class AvatarPicker extends Component {

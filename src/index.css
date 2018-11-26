@@ -74,3 +74,42 @@ code {
 .mid-margin-top{
     margin-top: 25px;
 }
+
+.sidenav-fixed{
+    top: inherit;
+    padding-bottom: 120px;
+}
+
+main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    main, footer {
+        padding-left: 0;
+    }
+}
+
+.cours-nav-row{
+    padding: 0px!important;
+}
+
+.nav-cours-margin-left{
+    margin-left: 35px!important;
+}
+
+.no-margin-bottom {
+   margin-bottom: 0px;
+}
+
+.nav-item-title{
+    font-size: 20px;
+}
+
+.waves-effect {
+    display: inherit;
+}
+
+.bg-white{
+    background-color: white;
+}

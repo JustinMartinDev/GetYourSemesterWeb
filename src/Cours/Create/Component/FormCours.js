@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import {InputField, RadioButtonField, TextareaField} from "../../Utils/Form"
+import {InputField, RadioButtonField, TextareaField, InputFileBox} from "../../../Utils/Form"
 import * as CoursFunction from "../Functions/CoursFunction"
-import InputFileBox from "./InputFileBox"
+//PNG
 import hommeAvatarImage from "../images/homme_sprite.png"
 import femmeAvatarImage from "../images/femme_sprite.png"
 

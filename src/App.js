@@ -4,8 +4,8 @@ import Navbar from './Utils/Layout/Navbar';
 import Dashboard from "./Dashboard/Dashboard";
 import SignUp from './Auth/SignUp';
 import SignIn from './Auth/SignIn';
-import CreateCours from './Cours/CreateCours';
-import Avatar from './Cours/Component/Avatar';
+import CreateCours from './Cours/Create/CreateCours';
+import CoursView from './Cours/View/CoursView';
 
 class App extends Component {
   render() {
@@ -18,6 +18,7 @@ class App extends Component {
                 <Route path='/signup' component={SignUp}/>
                 <Route path='/signin' component={SignIn}/>
                 <Route path='/create' component={CreateCours}/>
+                <Route path='/cours' component={CoursView}/>
             </Switch>
         </div>
     </BrowserRouter>

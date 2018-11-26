@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Circle from "react-circle";
-
+import JustinSolov2 from "../../../JustinSolov2.png"
 
 class CoursDetail extends Component{
     constructor(props) {
@@ -19,7 +19,7 @@ class CoursDetail extends Component{
 
     render() {
         return(
-            <div className="container bg-white">
+            <div className="bg-white">
                 <div className="row center valign-wrapper">
                     <div className="col s3">
                         <span className="nav-item-title">Title</span>
@@ -33,8 +33,8 @@ class CoursDetail extends Component{
                         <textarea type="textarea" id="id-description" className="materialize-textarea no-padding" defaultValue="zerijuohizerzeizjoeuirozerjpozerjieohruorizherozeorhezr" readOnly="true"/>
                     </div>
                     <div className="col s4 offset-s2">
-                        <div className="row">
-                            <div className="col s4 offset-s3">
+                        <div className="row valign-wrapper">
+                            <div className="col s4 offset-s1">
                                 <span>10/10</span>
                                 <Circle
                                     animate={true} // Boolean: Animated/Static progress
@@ -46,7 +46,7 @@ class CoursDetail extends Component{
                                     }}
                                 />
                             </div>
-                            <div className="col s4">
+                            <div className="col s3 offset-s1">
                                 <span>5/10</span>
                                 <Circle
                                     animate={true} // Boolean: Animated/Static progress
@@ -59,6 +59,16 @@ class CoursDetail extends Component{
                                 />
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="row valign-wrapper">
+                    <div className="col s4 offset-s1 valign-wrapper">
+                        <span>M Prof</span>
+                        <img src={JustinSolov2} alt="avatar" className="img-size-low low-margin-left"/>
+                    </div>
+                    <div className="col s8 valign-wrapper offset-s4">
+                        <a className="waves-effect waves-light btn-small"><i className="material-icons left">add</i>Questionnaire</a>
+                        <a className="waves-effect waves-light red btn-small low-margin-left"><i className="material-icons left">delete_forever</i>Cours</a>
                     </div>
                 </div>
             </div>

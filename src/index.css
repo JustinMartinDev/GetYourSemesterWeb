@@ -124,3 +124,7 @@ main, footer {
 .bg-teal {
     background-color: #26a69a;
 }
+
+.img-size-low{
+    width: 20%;
+}

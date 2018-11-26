@@ -10,6 +10,13 @@ class CoursDetail extends Component{
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            coursId : nextProps.coursId
+            }
+        );
+    }
+
     render() {
         return(
             <div className="container bg-white">
@@ -22,10 +29,10 @@ class CoursDetail extends Component{
                     </div>
                 </div>
                 <div className="row center valign-wrapper">
-                    <div className="col s8">
-                        <textarea type="textarea" id="id-description" className="materialize-textarea" value="zerijuohizerzeizjoeuirozerjpozerjieohruorizherozeorhezr" readonly/>
+                    <div className="col s5 offset-s1">
+                        <textarea type="textarea" id="id-description" className="materialize-textarea no-padding" defaultValue="zerijuohizerzeizjoeuirozerjpozerjieohruorizherozeorhezr" readOnly="true"/>
                     </div>
-                    <div className="col s4 offset-s4">
+                    <div className="col s4 offset-s2">
                         <div className="row">
                             <div className="col s4 offset-s3">
                                 <span>10/10</span>

@@ -7,8 +7,8 @@ class CoursView extends Component{
     constructor(props){
         super(props);
         this.state = {
-            coursIdActive : "0"
-        }
+            coursIdActive : "1"
+        };
 
         this.changeContent = this.changeContent.bind(this);
     }
@@ -19,7 +19,6 @@ class CoursView extends Component{
                 coursIdActive : coursId
             }
         );
-        console.log(coursId);
     };
 
     render() {
@@ -27,6 +26,7 @@ class CoursView extends Component{
             <div className="cours row">
                 <div className="col s3">
                     <CoursNav
+                        activeCoursId={this.state.coursIdActive}
                         changeContent={this.changeContent}
                     />
                 </div>

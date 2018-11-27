@@ -3,8 +3,6 @@ import AvatarDefault from '../../JustinSolov2.png'
 import {Circle} from "react-circle";
 import OnlineLed from "../../Utils/OnlineLed";
 import ChangeStatButton from "../../Utils/ChangeStatButton";
-import DashboardTable from "./DashboardTable";
-
 
 class DashboardItem extends Component {
     constructor(props) {
@@ -25,7 +23,7 @@ class DashboardItem extends Component {
                             <span className="card-title">{this.nomCours}</span>
                             <div>
                                 <div className="row valign-wrapper low-margin-bottom center-align">
-                                    <div className="col s2">
+                                    <div className="col s1">
                                         <img src={AvatarDefault} width="50"/>
                                     </div>
                                     <div className="col s2">
@@ -34,7 +32,7 @@ class DashboardItem extends Component {
                                     <div className="col s2">
                                         <OnlineLed online={this.online}/>
                                     </div>
-                                    <div className="col s4">
+                                    <div className="col s3">
                                         <ChangeStatButton
                                             online={this.online}
                                             validIcon="visibility"
@@ -45,9 +43,9 @@ class DashboardItem extends Component {
                                             invalidAction={function(){console.log("invalidAction");}}
                                         />
                                     </div>
-                                    <div className="col s2">
+                                    <div className="col s3">
                                         <a className="waves-effect waves-light btn-small" onClick="">
-                                            Voir plus
+                                            Questionnaire
                                         </a>
                                     </div>
                                 </div>

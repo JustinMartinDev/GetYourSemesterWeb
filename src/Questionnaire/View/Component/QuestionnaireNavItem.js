@@ -4,7 +4,7 @@ import OnlineLed from "../../../Utils/OnlineLed";
 import JustinSolov2 from "../../../JustinSolov2.png"
 import ChangeStatButton from "../../../Utils/ChangeStatButton";
 
-class   CoursNavItem extends Component {
+class   QuestionnaireNavItem extends Component {
     constructor(props) {
         super(props);
         this.clickFunction = props.clickFunction;
@@ -79,4 +79,4 @@ class   CoursNavItem extends Component {
         );
     }
 }
-export default CoursNavItem;
+export default QuestionnaireNavItem;

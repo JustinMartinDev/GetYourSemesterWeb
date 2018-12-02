@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import QuestionnaireNav from './Component/QuestionnaireNav'
-import QuestionnaireDetail from './Component/QuestionnaireDetail';
+import CoursDashboardNav from './Component/CoursDashboardNav'
+import CoursDashboardDetail from './Component/CoursDashboardDetail';
 
 
-class QuestionnaireView extends Component{
+class CoursDashboardView extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -25,13 +25,13 @@ class QuestionnaireView extends Component{
         return(
             <div className="cours row">
                 <div className="col s3">
-                    <QuestionnaireNav
+                    <CoursDashboardNav
                         activeCoursId={this.state.coursIdActive}
                         changeContent={this.changeContent}
                     />
                 </div>
                 <div className="col s9">
-                    <QuestionnaireDetail
+                    <CoursDashboardDetail
                         coursId={this.state.coursIdActive}
                     />
                 </div>
@@ -40,4 +40,4 @@ class QuestionnaireView extends Component{
     }
 }
 
-export default QuestionnaireView;
+export default CoursDashboardView;

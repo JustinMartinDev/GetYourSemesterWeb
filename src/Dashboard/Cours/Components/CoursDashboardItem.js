@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import AvatarDefault from '../../JustinSolov2.png'
+import AvatarDefault from '../../../JustinSolov2.png'
 import {Circle} from "react-circle";
-import OnlineLed from "../../Utils/OnlineLed";
-import ChangeStatButton from "../../Utils/ChangeStatButton";
+import OnlineLed from "../../../Utils/OnlineLed";
+import ChangeStatButton from "../../../Utils/ChangeStatButton";
 
-class DashboardItem extends Component {
+class CoursDashboardItem extends Component {
     constructor(props) {
         super(props);
         this.nomCours = props.nomCours;
@@ -58,4 +58,4 @@ class DashboardItem extends Component {
     }
 }
 
-export default DashboardItem;
+export default CoursDashboardItem;

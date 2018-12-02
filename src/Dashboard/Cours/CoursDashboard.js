@@ -1,9 +1,9 @@
 import {Component} from "react";
 import React from "react";
-import DashboardTable from './Components/DashboardTable';
+import CoursDashboardTable from './Components/CoursDashboardTable';
 import {    Link} from "react-router-dom";
 
-class Dashboard extends Component {
+class CoursDashboard extends Component {
     render() {
         return (
             <div className="dashboard container">
@@ -18,11 +18,11 @@ class Dashboard extends Component {
                        </Link>
                     </div>
                 </div>
-                <DashboardTable/>
+                <CoursDashboardTable/>
             </div>
 
         );
     }
 }
 
-export default Dashboard;
+export default CoursDashboard;

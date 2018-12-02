@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {InputField, CheckBoxField, RadioButtonField} from '../../Utils/Form';
 import {StateBox} from '../../Utils/Utils';
-import * as AuthFunction from '../Functions/AuthFunction.js';
+import * as ValidationFunctions from "../../Utils/Form/ValidationFunctions";
 
 class FormSignUp extends Component {
     constructor(props){
@@ -30,25 +30,39 @@ class FormSignUp extends Component {
             },
             formValid : false
         };
-        this.validateFunctionArray = {
-            email : AuthFunction.checkValidateEmail,
-            password : AuthFunction.checkValidatePassword,
-            repassword : AuthFunction.checkValidateRePassword,
-            typeAccount : AuthFunction.checkValidateTypeAccount,
-            agreeCGU : AuthFunction.checkValidateAgreeCGU
-        };
         this.handleChange = this.handleChange.bind(this);
         //this.handleSubmit = this.handleSubmit.bind(this);
     }
-
     handleChange(event) {
-        let newState = this.validateFunctionArray[event.target.getAttribute("dataname")](this.state, event);
-        newState.formValid = true;
-        const arr = Object.keys(newState.valid).map(function(k) { return newState.valid[k] });
-        arr.map(valid => ( newState.formValid &= valid));
+        let newState = this.state;
+
+        const regexEmailUniv = new RegExp('^[a-zA-Z0-9.!#$%& ’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]*univ([a-zA-Z0-9-]*)\\.([a-zA-Z0-9-]+)', 'i');
+        const dataName = event.target.getAttribute("dataname");
+        let value = event.target.value;
+
+        switch(dataName){
+            case "email":
+                newState = ValidationFunctions.checkValidateWithRegex(newState, value, dataName, regexEmailUniv);
+                break;
+            case "password":
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 6);
+                break;
+            case "repassword":
+                newState = ValidationFunctions.checkValidateCompare(newState, value, dataName, newState.value.password);
+                break;
+            case "agreeCGU":
+                newState.value[dataName] = event.target.checked;
+                newState.valid[dataName] = event.target.checked;
+                break;
+            case "typeAccount":
+                value = event.target.getAttribute("valueInput");
+                newState = ValidationFunctions.saveValidateValue(newState, value, dataName);
+                break;
+        }
+
+        newState = ValidationFunctions.checkValidForm(newState);
         this.setState(newState);
     }
-
     render(){
         return (
             <form className="wow fadeIn col s10 offset-s3">

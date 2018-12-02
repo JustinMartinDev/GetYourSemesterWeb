@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import QuestionnaireNavItem from "./QuestionnaireNavItem";
+import CoursDashboardNavItem from "./CoursDashboardNavItem";
 
-class QuestionnaireNav extends Component{
+class CoursDashboardNav extends Component{
     constructor(props) {
         super(props);
         this.changeContent = props.changeContent;
@@ -21,7 +21,7 @@ class QuestionnaireNav extends Component{
         return(
             <div className="dashboard-navigation">
                 <ul id="slide-out" className="sidenav sidenav-fixed">
-                    <QuestionnaireNavItem
+                    <CoursDashboardNavItem
                         isActive={(this.state.activeCoursId === "1")}
                         percent="50"
                         nomCours="Cours 1"
@@ -29,7 +29,7 @@ class QuestionnaireNav extends Component{
                         clickFunction={this.changeContent}
                         coursId="1"
                     />
-                    <QuestionnaireNavItem
+                    <CoursDashboardNavItem
                         isActive={(this.state.activeCoursId === "2")}
                         percent="64"
                         nomCours="Cours 2"
@@ -37,7 +37,7 @@ class QuestionnaireNav extends Component{
                         clickFunction={this.changeContent}
                         coursId="2"
                     />
-                    <QuestionnaireNavItem
+                    <CoursDashboardNavItem
                         isActive={(this.state.activeCoursId === "3")}
                         percent="12"
                         nomCours="Cours 3"
@@ -45,7 +45,7 @@ class QuestionnaireNav extends Component{
                         clickFunction={this.changeContent}
                         coursId="3"
                     />
-                    <QuestionnaireNavItem
+                    <CoursDashboardNavItem
                         isActive={(this.state.activeCoursId === "4")}
                         percent="98"
                         nomCours="Cours 4"
@@ -53,7 +53,7 @@ class QuestionnaireNav extends Component{
                         clickFunction={this.changeContent}
                         coursId="4"
                     />
-                    <QuestionnaireNavItem
+                    <CoursDashboardNavItem
                         isActive={(this.state.activeCoursId === "5")}
                         percent="35"
                         nomCours="Cours 5"
@@ -66,4 +66,4 @@ class QuestionnaireNav extends Component{
         );
     }
 }
-export default QuestionnaireNav;
+export default CoursDashboardNav;

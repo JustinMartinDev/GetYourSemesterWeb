@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './Utils/Layout/Navbar';
-import Dashboard from "./Dashboard/Dashboard";
+
+import RouterCreate from "./Create/RouterCreate";
+import RouterDashboard from "./Dashboard/RouterDashboard";
+import RouterDashboardDetail from "./DashboardDetail/RouterDashboardDetail";
+
 import SignUp from './Auth/SignUp';
 import SignIn from './Auth/SignIn';
-import CreateCours from './Cours/Create/CreateCours';
-import CoursView from './Cours/View/CoursView';
+
 
 class App extends Component {
   render() {
@@ -14,11 +17,11 @@ class App extends Component {
         <div className="App">
             <Navbar/>
             <Switch>
-                <Route path='/dashboard' component={Dashboard}/>
+                <Route path='/dashboard-detail/:elem(cours|questionnaire)' component={RouterDashboardDetail}/>
+                <Route path='/dashboard/:elem(cours|questionnaire)' component={RouterDashboard}/>
                 <Route path='/signup' component={SignUp}/>
                 <Route path='/signin' component={SignIn}/>
-                <Route path='/create' component={CreateCours}/>
-                <Route path='/cours' component={CoursView}/>
+                <Route path='/create/:elem(cours|questionnaire)' component={RouterCreate}/>
             </Switch>
         </div>
     </BrowserRouter>

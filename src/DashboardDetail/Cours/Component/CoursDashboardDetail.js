@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Circle from "react-circle";
 import JustinSolov2 from "../../../JustinSolov2.png"
-import TableQuestion from './TableQuestion';
+import TableQuestionnaire from './TableQuestionnaire';
 
-class QuestionnaireDetail extends Component{
+class CoursDashboardDetail extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -74,7 +74,7 @@ class QuestionnaireDetail extends Component{
                 </div>
                 <div className="row">
                     <div className="col s12 table-wrapper-scroll-y">
-                        <TableQuestion
+                        <TableQuestionnaire
                             coursId={this.state.coursId}
                         />
                     </div>
@@ -84,4 +84,4 @@ class QuestionnaireDetail extends Component{
     }
 }
 
-export default QuestionnaireDetail;
+export default CoursDashboardDetail;

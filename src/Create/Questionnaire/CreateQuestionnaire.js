@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import FormCours from "./Component/FormCours";
+import FormQuestionnaire from "./Component/FormQuestionnaire";
 
 class CreateQuestionnaire extends Component {
     constructor(props){
@@ -13,7 +13,7 @@ class CreateQuestionnaire extends Component {
                     <h4>Créer un cours</h4>
                 </div>
                 <div className="row">
-                    <FormCours/>
+                    <FormQuestionnaire/>
                 </div>
             </div>
         );

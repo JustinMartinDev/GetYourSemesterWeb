@@ -1,0 +1,1 @@
+export { default as FormCours} from './FormQuestionnaire';

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import DashboardItem from "./DashboardItem";
-class DashboardTable extends Component {
+import CoursDashboardItem from "./CoursDashboardItem";
+class CoursDashboardTable extends Component {
     constructor(props) {
         super(props);
     }
@@ -8,17 +8,17 @@ class DashboardTable extends Component {
     render(){
         return(
             <React.Fragment>
-                <DashboardItem
+                <CoursDashboardItem
                     nomCours="zer"
                     percent="25"
                     online="false"
                 />
-                <DashboardItem
+                <CoursDashboardItem
                     nomCours="myCours"
                     percent="83"
                     online="true"
                 />
-                <DashboardItem
+                <CoursDashboardItem
                     nomCours="mySeconde cours"
                     percent="54"
                     online="true"
@@ -28,4 +28,4 @@ class DashboardTable extends Component {
     }
 }
 
-export default  DashboardTable;
+export default  CoursDashboardTable;

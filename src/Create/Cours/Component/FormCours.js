@@ -4,6 +4,7 @@ import * as CoursFunction from "../Functions/CoursFunction"
 //PNG
 import hommeAvatarImage from "../images/homme_sprite.png"
 import femmeAvatarImage from "../images/femme_sprite.png"
+import * as ValidationFunctions from "../../../Utils/Form/ValidationFunctions";
 
 class FormCours extends Component{
     constructor(props) {
@@ -48,21 +49,34 @@ class FormCours extends Component{
             },
             formValid : false
         };
-
-        this.validateFunctionArray = {
-            title : CoursFunction.checkValidateTitle,
-            description : CoursFunction.checkValidateDescription,
-            profName : CoursFunction.checkValidateProf,
-            avatarType: CoursFunction.checkValidateAvatarType,
-        };
         this.handleChange = this.handleChange.bind(this);
         this.changeImage = this.changeImage.bind(this);
     }
 
     handleChange(event) {
-        let newState = this.validateFunctionArray[event.target.getAttribute("dataname")](this.state, event);
-        console.log(newState);
+        let newState = this.state;
+        const dataName = event.target.getAttribute("dataname");
+        let value = event.target.value;
+
+        switch(dataName){
+            case "title":
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 1);
+                break;
+            case "description":
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 1);
+                break;
+            case "profName":
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 1);
+                break;
+            case "avatarType":
+                value = event.target.getAttribute("valueInput");
+                newState = ValidationFunctions.saveValidateValue(newState, value, dataName);
+                console.log(newState);
+                break;
+        }
+
         newState.formValid = true;
+
         const arr = Object.keys(newState.valid).map(function (k) {
             return newState.valid[k]
         });
@@ -76,13 +90,13 @@ class FormCours extends Component{
         let file = e.target.files[0];
 
         reader.onloadend = () => {
-            console.log(reader);
             this.setState({
                 value : {
                     avatar: {
                         file: file,
                         imagePreviewUrl: reader.result
-                    }
+                    },
+                    avatarType : "Perso"
                 }
             });
         };

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {CheckBoxField, InputField} from "../../Utils/Form";
-import * as AuthFunction from '../Functions/AuthFunction.js';
+import * as ValidationFunctions from "../../Utils/Form/ValidationFunctions"
 
 class FormSignIn extends Component{
     constructor(props){
@@ -25,22 +25,28 @@ class FormSignIn extends Component{
             },
             formValid : false
         };
-        this.validateFunctionArray = {
-            email : AuthFunction.checkValidateEmail,
-            password : AuthFunction.checkValidatePassword,
-            stayLogged : function (newData, event) {return newData.value.stayLogged = event.target.checked;}
-        };
         this.handleChange = this.handleChange.bind(this);
         //this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        let newState = this.validateFunctionArray[event.target.getAttribute("dataname")](this.state, event);
-        newState.formValid = true;
-        const arr = Object.keys(newState.valid).map(function (k) {
-            return newState.valid[k]
-        });
-        arr.map(valid => (newState.formValid &= valid));
+        let newState = this.state;
+
+        const regexEmailUniv = new RegExp('^[a-zA-Z0-9.!#$%& ’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]*univ([a-zA-Z0-9-]*)\\.([a-zA-Z0-9-]+)', 'i');
+        const dataName = event.target.getAttribute("dataname");
+        const value = event.target.value;
+
+        switch(dataName){
+            case "email":
+                newState = ValidationFunctions.checkValidateWithRegex(newState, value, dataName, regexEmailUniv);
+                break;
+            case "password":
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 6);
+                break;
+            case "stayLogged":
+                newState.value[dataName] = event.target.checkbox;
+        }
+        newState = ValidationFunctions.checkValidForm(newState);
         this.setState(newState);
     }
 

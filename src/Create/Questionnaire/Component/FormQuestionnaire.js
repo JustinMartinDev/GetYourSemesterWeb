@@ -50,10 +50,10 @@ class FormQuestionnaire extends Component{
     }
 
     validQuestions(question, valid){
-        const formValid = valid &= this.state.formValid;
+/*        const formValid = valid &= this.state.formValid;
         this.setState({
             formValid : formValid
-        });
+        });*/
     }
 
     render() {
@@ -99,7 +99,7 @@ class FormQuestionnaire extends Component{
                     <div className="col s11 offset-s1">
                         <ListeQuestionnaire
                             question={this.state.value.question}
-                            validQuestion={this.validQuestions}
+                            validQuestions={this.validQuestions}
                         />
                     </div>
                 </div>
@@ -108,7 +108,6 @@ class FormQuestionnaire extends Component{
                         <button className={"btn btn-large waves-effect waves-light" + (!this.state.formValid ? " disabled" : "")} type="submit" name="action">Créer ce questionnaire
                             <i className="material-icons right">save</i>
                         </button>
-
                     </div>
                 </div>
             </form>

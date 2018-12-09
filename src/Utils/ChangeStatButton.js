@@ -20,9 +20,9 @@ class ChangeStatButton extends Component {
     }
 
 
-    render() {
+    render() { 
         return(
-            <a className={!this.online ? onlineClass : offlineClass} onClick={this.online ? this.validAction : this.invalidAction}>
+            <a href="!#" className={!this.online ? onlineClass : offlineClass} onClick={this.online ? this.validAction : this.invalidAction}>
                 <i className="material-icons left">
                     {!this.online ? this.validIcon : this.invalidIcon}
                 </i>

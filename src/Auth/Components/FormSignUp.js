@@ -58,6 +58,9 @@ class FormSignUp extends Component {
                 value = event.target.getAttribute("valueInput");
                 newState = ValidationFunctions.saveValidateValue(newState, value, dataName);
                 break;
+            default :
+                alert("Error");
+                break;
         }
 
         newState = ValidationFunctions.checkValidForm(newState);
@@ -134,9 +137,10 @@ class FormSignUp extends Component {
                             valueConditionToShow="Teacher"
                             classColor="warning-border state-box-col"
                             icon="warning"
-                            text="Les comptes enseignants doivent être vérifiés par un administrateur"
-                            title="Title"
-                        />
+                            colSize="6"
+                            title="Title">
+                            <span>Les comptes enseignants doivent être vérifiés par un administrateur</span>
+                        </StateBox>
                     </div>
                 </div>
                 <div className="row">
@@ -146,7 +150,7 @@ class FormSignUp extends Component {
                             dataName="agreeCGU"
                             value={this.state.value.agreeCGU}>
                             <span>
-                                Vous acceptez nos <a href="#"> Conditions d'utilisation</a>, notre <a href="#" >Politique de confidentialité</a> et notre <a href="#">Utilisation des cookies</a>.
+                                Vous acceptez nos <a href="!#"> Conditions d'utilisation</a>, notre <a href="!#" >Politique de confidentialité</a> et notre <a href="!#">Utilisation des cookies</a>.
                             </span>
                         </CheckBoxField>
                     </div>

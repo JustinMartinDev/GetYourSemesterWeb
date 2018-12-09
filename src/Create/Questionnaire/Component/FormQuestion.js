@@ -1,7 +1,7 @@
-import React, {Component, forwardRef} from 'react'
+import React, {Component} from 'react'
 import {TextareaField, InputField, CheckBoxField} from "../../../Utils/Form";
 import * as ValidationFunctions from "../../../Utils/Form/ValidationFunctions";
-
+import {StateBox} from "../../../Utils/Utils";
 
 class FormQuestion extends Component{
     constructor(props) {
@@ -62,7 +62,11 @@ class FormQuestion extends Component{
                     }
                 },
                 isCreation : props.isCreation,
-                formValid : false
+                formValid : false,
+                messageInfo : [
+                    "Vous devez au moins entrer deux réponses",
+                    "Vous devez au moins indiquer une bonne réponse"
+                ]
             };
 
         this.count = props.count;
@@ -89,9 +93,16 @@ class FormQuestion extends Component{
             else newState.value["response"][responseId].isAnswer = value;
         }
 
+        newState.messageInfo = [];
+
         newState.formValid = newState.valid.questionTitle;
         newState.formValid &= ValidationFunctions.checkValidTab(newState, "response");
+        if(!newState.formValid)
+            newState.messageInfo.push("Vous devez au moins entrer deux réponses");
+
         newState.formValid &= FormQuestion.ValidNbAnswer(newState);
+        if(!newState.formValid)
+            newState.messageInfo.push("Vous devez au moins indiquer une bonne réponse");
 
         this.setState(newState);
 
@@ -101,25 +112,56 @@ class FormQuestion extends Component{
 
     static ValidNbAnswer(newState) {
         let nb = 0;
+        let size = 0;
 
-        let size = newState.value.response.length;
+        for(var property in newState.value.response) {
+            console.log(property);
+            size++;
+        }
 
-        for(let i=0; i<size; i++)
-            if(newState.response[i].isAnswer)
-              nb++;
+        for(let i=1; i<size+1; i++) {
+            if (newState.value.response[i].isAnswer)
+                nb++;
+        }
 
-        return nb >= 2;
+        return nb > 0;
 
     }
 
+/*    showToastError = (event) => {
+        event.stopPropagation();
+        this.state.messageInfo.map(message =>{
+            window.Materialize.toast(message, 3000);
+        });
+    };*/
+
     render() {
+        const condError = (this.state.messageInfo.length === 0 ? "validate" : "error");
         return(
             <li>
                 <div className="collapsible-header">
                     <i className="material-icons">assignment</i>{this.state.isCreation ? "Créer une nouvelle question" : this.state.questionTitle}
+                    <i className={(condError === "validate" ? "green-text" : "red-text") + " material-icons"} >{condError === "validate" ? "done_outline" : "error_outline"}</i>
                 </div>
                 <div className="collapsible-body bg-white">
-                    <div className="row">
+                    <div className="row un-margin-top-30">
+                        <div className="col s8">
+                            <StateBox
+                                valueElement={condError}
+                                valueConditionToShow="error"
+                                colSize="12"
+                                classColor="error-border state-box-col"
+                                icon="error"
+                                title="Error">
+                                <ul>
+                                    {this.state.messageInfo.map(message=> (
+                                        <li>{message}</li>
+                                    ))}
+                                </ul>
+                            </StateBox>
+                        </div>
+                    </div>
+                    <div className="row ">
                         <div className="col s8 input-field">
                             <InputField
                                 className={this.state.class.questionTitle}

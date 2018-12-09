@@ -24,7 +24,7 @@ class CoursDashboardItem extends Component {
                             <div>
                                 <div className="row valign-wrapper low-margin-bottom center-align">
                                     <div className="col s1">
-                                        <img src={AvatarDefault} width="50"/>
+                                        <img alt="avatar du cours" src={AvatarDefault} width="50"/>
                                     </div>
                                     <div className="col s2">
                                         <Circle progress={this.percent}/>
@@ -44,7 +44,7 @@ class CoursDashboardItem extends Component {
                                         />
                                     </div>
                                     <div className="col s3">
-                                        <a className="waves-effect waves-light btn-small" onClick="">
+                                        <a href="!#" className="waves-effect waves-light btn-small" onClick="">
                                             Questionnaire
                                         </a>
                                     </div>

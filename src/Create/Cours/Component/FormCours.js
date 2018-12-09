@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {InputField, RadioButtonField, TextareaField, InputFileBox} from "../../../Utils/Form"
-import * as CoursFunction from "../Functions/CoursFunction"
 //PNG
 import hommeAvatarImage from "../images/homme_sprite.png"
 import femmeAvatarImage from "../images/femme_sprite.png"
@@ -71,7 +70,9 @@ class FormCours extends Component{
             case "avatarType":
                 value = event.target.getAttribute("valueInput");
                 newState = ValidationFunctions.saveValidateValue(newState, value, dataName);
-                console.log(newState);
+                break;
+            default :
+                window.Materialize.toast("error", 3000);
                 break;
         }
 

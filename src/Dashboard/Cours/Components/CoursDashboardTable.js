@@ -3,6 +3,7 @@ import CoursDashboardItem from "./CoursDashboardItem";
 class CoursDashboardTable extends Component {
     constructor(props) {
         super(props);
+        //todo get all value
     }
 
     render(){

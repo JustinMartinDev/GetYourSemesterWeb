@@ -23,3 +23,9 @@
 .low-padding-left {
     padding-left: 4px!important;
 }
+
+
+.error-border {
+    border-color: red;
+    color: red;
+}

@@ -2,10 +2,6 @@ import React, {Component} from "react";
 import {FormSignUp} from "./Components";
 
 class SignUp extends Component {
-    constructor(props){
-        super(props);
-    }
-
     render(){
         return(
             <div className="dashboard container">

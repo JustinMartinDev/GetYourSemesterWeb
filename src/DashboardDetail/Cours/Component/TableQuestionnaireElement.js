@@ -8,6 +8,7 @@ class TableQuestionnaireElement extends Component{
         super(props);
         this.state = {
             questionnaireId: props.questionnaireId,
+            online : (Math.floor(Math.random())) === "0"
         }
     }
 
@@ -16,7 +17,7 @@ class TableQuestionnaireElement extends Component{
             <tr>
                 <td>
                     <OnlineLed
-                        online={("true" === "true")}
+                        online={this.state.online}
                         className="valign-wrapper"
                     />
                 </td>
@@ -40,11 +41,11 @@ class TableQuestionnaireElement extends Component{
                     />
                 </td>
                 <td>
-                    <a className="btn-floating btn-large waves-effect waves-light primary-color"><i
+                    <a href="!#" className="btn-floating btn-large waves-effect waves-light primary-color"><i
                         className="material-icons">edit</i></a>
                 </td>
                 <td>
-                    <a className="btn-floating btn-large waves-effect waves-light red low"><i
+                    <a href="!#" className="btn-floating btn-large waves-effect waves-light red low"><i
                         className="material-icons">delete_forever</i></a>
                 </td>
             </tr>

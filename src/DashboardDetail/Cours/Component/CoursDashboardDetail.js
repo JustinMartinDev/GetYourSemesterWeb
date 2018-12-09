@@ -68,8 +68,8 @@ class CoursDashboardDetail extends Component{
                         <img src={JustinSolov2} alt="avatar" className="img-size-low low-margin-left"/>
                     </div>
                     <div className="col s8 valign-wrapper offset-s4">
-                        <a className="waves-effect waves-light btn-small"><i className="material-icons left">add</i>Questionnaire</a>
-                        <a className="waves-effect waves-light red btn-small low-margin-left"><i className="material-icons left">delete_forever</i>Cours</a>
+                        <a href="!#" className="waves-effect waves-light btn-small"><i className="material-icons left">add</i>Questionnaire</a>
+                        <a href="!#" className="waves-effect waves-light red btn-small low-margin-left"><i className="material-icons left">delete_forever</i>Cours</a>
                     </div>
                 </div>
                 <div className="row">

@@ -59,7 +59,7 @@ class   CoursDashboardNavItem extends Component {
                                 />
                             </div>
                             <div className="col s2">
-                                <img src={JustinSolov2}/>
+                                <img alt="avatar cours" src={JustinSolov2}/>
                             </div>
                         </div>
                         <div className="row center">

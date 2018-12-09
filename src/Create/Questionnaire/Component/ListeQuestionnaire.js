@@ -23,7 +23,7 @@ class ListeQuestionnaire extends Component{
 
     render() {
         return(
-            <ul className="collapsible popout">
+            <ul className="collapsible popout questionnaire">
                 {this.questions.map(question =>
                     (<FormQuestion
                         count={this.count++}
@@ -37,7 +37,7 @@ class ListeQuestionnaire extends Component{
                     count={this.count++}
                     isCreation={true}
                     handleQuestion={this.handleQuestion}/>
-            </ul>
+               </ul>
         )
     }
 }

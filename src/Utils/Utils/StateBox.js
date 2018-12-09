@@ -10,7 +10,9 @@ class StateBox extends Component{
             text : props.text,
             title : props.title,
             valueElement : props.valueElement,
-            valueConditionToShow : props.valueConditionToShow
+            valueConditionToShow : props.valueConditionToShow,
+            child : props.children,
+            colSize : props.colSize
         };
     }
 
@@ -21,7 +23,9 @@ class StateBox extends Component{
                 text : nextProps.text,
                 title : nextProps.title,
                 valueElement : nextProps.valueElement,
-                valueConditionToShow : nextProps.valueConditionToShow
+                valueConditionToShow : nextProps.valueConditionToShow,
+                child : nextProps.children,
+                colSize : nextProps.colSize
             }
         );
     }
@@ -34,12 +38,13 @@ class StateBox extends Component{
                     "scale-in" :
                     "scale-out")
                 }>
-                    <div className={"col s6 border-raduis " + this.state.classColor}>
+                    <div className={"col s"+(this.state.colSize)+" border-raduis "+(this.state.classColor)}>
                         <div className="col s1">
                             <i className="low-padding-left material-icons">{this.state.icon}</i>
                         </div>
                         <div className="col s11">
-                            <span><b>{this.state.title} : </b> {this.state.text}</span>
+                            <span><b>{this.state.title} : </b></span>
+                            {this.state.child}
                         </div>
                     </div>
                 </div>

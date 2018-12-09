@@ -5,7 +5,7 @@
   "dependencies": {
     "fabric": "^2.4.3",
     "jquery": "^3.3.1",
-    "mdbreact": "^4.8.3",
+    "mdbreact": "^4.8.4",
     "moment": "^2.22.2",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",

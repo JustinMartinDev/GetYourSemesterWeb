@@ -12,20 +12,22 @@ class TextTruncate extends Component{
     }
 
     componentWillMount() {
+        const newState = this.state;
         if(this.state.text.length > this.state.size) {
-            this.state.textToShow = this.state.text.substring(0, this.state.size);
-            this.state.textToShow+="...";
-            this.state.showInModal = true;
+            newState.textToShow = this.state.text.substring(0, this.state.size);
+            newState.textToShow+="...";
+            newState.showInModal = true;
         } else {
-            this.state.textToShow = this.state.text;
-            this.state.showInModal = false;
+            newState.textToShow = this.state.text;
+            newState.showInModal = false;
         }
+        this.setState(newState);
     }
-
+ 
     render() {
         return (
             <div>
-                <a className="no-link" title={this.state.showInModal ? this.state.text : ""}>{this.state.textToShow}</a>
+                <a href="!#" className="no-link" title={this.state.showInModal ? this.state.text : ""}>{this.state.textToShow}</a>
             </div>
         );
     }

@@ -152,3 +152,27 @@ main, footer {
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+
+.questionnaire-dropdown {
+    width: 35%!important;
+    border-radius: 25px;
+    background-color: #c0392b;
+    overflow-x: hidden!important;
+}
+
+.questionnaire-dropdown li{
+    margin-left: 15px;
+    min-height: 5px;
+    color: white;
+    cursor: default!important;
+}
+
+.questionnaire-dropdown li:hover{
+    background-color: #c0392b;
+    color: white;
+}
+
+.un-margin-top-30{
+    margin-top: -30px!important;
+    margin-bottom: 0px!important;
+}

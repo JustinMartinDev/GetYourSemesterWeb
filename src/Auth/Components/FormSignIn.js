@@ -45,6 +45,10 @@ class FormSignIn extends Component{
                 break;
             case "stayLogged":
                 newState.value[dataName] = event.target.checkbox;
+                break;
+            default :
+                window.Materialize.toast("error", 3000);
+                break;
         }
         newState = ValidationFunctions.checkValidForm(newState);
         this.setState(newState);

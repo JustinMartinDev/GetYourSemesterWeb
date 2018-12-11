@@ -7,6 +7,7 @@ class FormQuestion extends Component{
     constructor(props) {
         super(props);
 
+        console.log(props.questionValue);
         this.state = {
             value : {
                 questionTitle: props.questionValue.questionTitle,
@@ -134,10 +135,11 @@ class FormQuestion extends Component{
 
     render() {
         const condError = (this.state.messageInfo.length === 0 ? "validate" : "error");
+        console.log(this.state);
         return(
             <li>
                 <div className="collapsible-header">
-                    <i className="material-icons">assignment</i>{this.state.questionTitle}
+                    <i className="material-icons">assignment</i>{this.state.value.questionTitle}
                     <i className={(condError === "validate" ? "green-text" : "red-text") + " material-icons"} >{condError === "validate" ? "done_outline" : "error_outline"}</i>
                 </div>
                 <div className="collapsible-body bg-white">
@@ -164,7 +166,7 @@ class FormQuestion extends Component{
                                 className={this.state.class.questionTitle}
                                 handleChange={this.handleChange}
                                 dataname="questionTitle"
-                                value={this.state.value.questionTitle}
+                                defaultvalue={this.state.value.questionTitle}
                                 type="text"
                                 text="Question"
                                 id="question-title-input"

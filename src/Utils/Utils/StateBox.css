@@ -24,8 +24,12 @@
     padding-left: 4px!important;
 }
 
-
 .error-border {
     border-color: red;
     color: red;
+}
+
+.valid-border {
+    border-color: green;
+    color: green;
 }

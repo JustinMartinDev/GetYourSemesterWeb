@@ -28,18 +28,18 @@ export function checkValidateWithSizeTabSecondKey(newState, value, key, question
     }
     return newState
 }
-export function checkValidateCompare(newState, value, dataName, valueToCompare) {
+export function checkValidateCompare(newState, value, dataname, valueToCompare) {
     if(value === valueToCompare){
-        newState.value[dataName] = value;
-        if(!(newState.class[dataName] === "valid")) {
-            newState.class[dataName] = newState.class[dataName].replace("invalid", "valid");
-            newState.valid[dataName] = true;
+        newState.value[dataname] = value;
+        if(!(newState.class[dataname] === "valid")) {
+            newState.class[dataname] = newState.class[dataname].replace("invalid", "valid");
+            newState.valid[dataname] = true;
         }
     }
-    else if(!newState.class[dataName].includes("invalid")) {
-        newState.class[dataName] = newState.class[dataName].replace("valid", "");
-        newState.class[dataName] += "invalid";
-        newState.valid[dataName] = false;
+    else if(!newState.class[dataname].includes("invalid")) {
+        newState.class[dataname] = newState.class[dataname].replace("valid", "");
+        newState.class[dataname] += "invalid";
+        newState.valid[dataname] = false;
     }
     return newState;
 }

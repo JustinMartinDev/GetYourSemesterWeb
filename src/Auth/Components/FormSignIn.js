@@ -33,18 +33,18 @@ class FormSignIn extends Component{
         let newState = this.state;
 
         const regexEmailUniv = new RegExp('^[a-zA-Z0-9.!#$%& ’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]*univ([a-zA-Z0-9-]*)\\.([a-zA-Z0-9-]+)', 'i');
-        const dataName = event.target.getAttribute("dataname");
+        const dataname = event.target.getAttribute("dataname");
         const value = event.target.value;
 
-        switch(dataName){
+        switch(dataname){
             case "email":
-                newState = ValidationFunctions.checkValidateWithRegex(newState, value, dataName, regexEmailUniv);
+                newState = ValidationFunctions.checkValidateWithRegex(newState, value, dataname, regexEmailUniv);
                 break;
             case "password":
-                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 6);
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataname, 6);
                 break;
             case "stayLogged":
-                newState.value[dataName] = event.target.checkbox;
+                newState.value[dataname] = event.target.checkbox;
                 break;
             default :
                 window.Materialize.toast("error", 3000);
@@ -62,7 +62,7 @@ class FormSignIn extends Component{
                         <InputField
                             className={this.state.class.email}
                             handleChange={this.handleChange}
-                            dataName="email"
+                            dataname="email"
                             value={this.state.value.email}
                             type="email"
                             text="Email"
@@ -79,7 +79,7 @@ class FormSignIn extends Component{
                         <InputField
                             className={this.state.class.password}
                             handleChange={this.handleChange}
-                            dataName="password"
+                            dataname="password"
                             value={this.state.value.password}
                             type="password"
                             text="Password"
@@ -95,7 +95,7 @@ class FormSignIn extends Component{
                     <div className="col s6">
                         <CheckBoxField
                             handleChange={this.handleChange}
-                            dataName="cookie"
+                            dataname="cookie"
                             value={this.state.value.cookie}>
                             <span>
                                 Rester connecté

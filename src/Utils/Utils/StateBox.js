@@ -12,7 +12,8 @@ class StateBox extends Component{
             valueElement : props.valueElement,
             valueConditionToShow : props.valueConditionToShow,
             child : props.children,
-            colSize : props.colSize
+            colSize : props.colSize,
+            classMargin : props.classMargin
         };
     }
 
@@ -25,7 +26,8 @@ class StateBox extends Component{
                 valueElement : nextProps.valueElement,
                 valueConditionToShow : nextProps.valueConditionToShow,
                 child : nextProps.children,
-                colSize : nextProps.colSize
+                colSize : nextProps.colSize,
+                classMargin : nextProps.classMargin
             }
         );
     }
@@ -33,17 +35,17 @@ class StateBox extends Component{
     render(){
             return (
                 <div className=
-                 {"row scale-transition low-margin-bottom " +
+                 {"row scale-transition "+(this.state.classMargin)+
                  (this.state.valueElement === this.state.valueConditionToShow ?
-                    "scale-in" :
-                    "scale-out")
+                    " scale-in" :
+                    " scale-out")
                 }>
                     <div className={"col s"+(this.state.colSize)+" border-raduis "+(this.state.classColor)}>
                         <div className="col s1">
                             <i className="low-padding-left material-icons">{this.state.icon}</i>
                         </div>
                         <div className="col s11">
-                            <span><b>{this.state.title} : </b></span>
+                            <span><b>{this.state.title}</b></span>
                             {this.state.child}
                         </div>
                     </div>

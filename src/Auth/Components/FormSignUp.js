@@ -37,26 +37,26 @@ class FormSignUp extends Component {
         let newState = this.state;
 
         const regexEmailUniv = new RegExp('^[a-zA-Z0-9.!#$%& ’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]*univ([a-zA-Z0-9-]*)\\.([a-zA-Z0-9-]+)', 'i');
-        const dataName = event.target.getAttribute("dataname");
+        const dataname = event.target.getAttribute("dataname");
         let value = event.target.value;
 
-        switch(dataName){
+        switch(dataname){
             case "email":
-                newState = ValidationFunctions.checkValidateWithRegex(newState, value, dataName, regexEmailUniv);
+                newState = ValidationFunctions.checkValidateWithRegex(newState, value, dataname, regexEmailUniv);
                 break;
             case "password":
-                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 6);
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataname, 6);
                 break;
             case "repassword":
-                newState = ValidationFunctions.checkValidateCompare(newState, value, dataName, newState.value.password);
+                newState = ValidationFunctions.checkValidateCompare(newState, value, dataname, newState.value.password);
                 break;
             case "agreeCGU":
-                newState.value[dataName] = event.target.checked;
-                newState.valid[dataName] = event.target.checked;
+                newState.value[dataname] = event.target.checked;
+                newState.valid[dataname] = event.target.checked;
                 break;
             case "typeAccount":
                 value = event.target.getAttribute("valueInput");
-                newState = ValidationFunctions.saveValidateValue(newState, value, dataName);
+                newState = ValidationFunctions.saveValidateValue(newState, value, dataname);
                 break;
             default :
                 alert("Error");
@@ -74,7 +74,7 @@ class FormSignUp extends Component {
                         <InputField
                             className={this.state.class.email}
                             handleChange={this.handleChange}
-                            dataName="email"
+                            dataname="email"
                             value={this.state.value.email}
                             type="email"
                             text="Email"
@@ -91,7 +91,7 @@ class FormSignUp extends Component {
                         <InputField
                             className={this.state.class.password}
                             handleChange={this.handleChange}
-                            dataName="password"
+                            dataname="password"
                             value={this.state.value.password}
                             type="password"
                             text="Password"
@@ -108,7 +108,7 @@ class FormSignUp extends Component {
                         <InputField
                             className={this.state.class.repassword}
                             handleChange={this.handleChange}
-                            dataName="repassword"
+                            dataname="repassword"
                             value={this.state.value.repassword}
                             type="password"
                             text="Re-password"
@@ -126,7 +126,7 @@ class FormSignUp extends Component {
                             labelClassName=""
                             handleChange={this.handleChange}
                             className={this.state.class.typeAccount}
-                            dataName="typeAccount"
+                            dataname="typeAccount"
                             checked={this.state.value.typeAccount}
                             values={["Teacher", "Student"]}
                         />
@@ -147,7 +147,7 @@ class FormSignUp extends Component {
                     <div className="col s6">
                         <CheckBoxField
                             handleChange={this.handleChange}
-                            dataName="agreeCGU"
+                            dataname="agreeCGU"
                             value={this.state.value.agreeCGU}>
                             <span>
                                 Vous acceptez nos <a href="!#"> Conditions d'utilisation</a>, notre <a href="!#" >Politique de confidentialité</a> et notre <a href="!#">Utilisation des cookies</a>.

@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {InputField, TextareaField} from "../../../Utils/Form"
-import * as CoursFunction from "../../Cours/Functions/CoursFunction"
 import ListeQuestionnaire from "./ListeQuestionnaire"
 import * as ValidationFunctions from "../../../Utils/Form/ValidationFunctions";
-
 class FormQuestionnaire extends Component{
     constructor(props) {
         super(props);
@@ -41,10 +39,10 @@ class FormQuestionnaire extends Component{
     }
 
     handleChange(event) {
-        const dataName = event.target.getAttribute("dataname");
+        const dataname = event.target.getAttribute("dataname");
         const value = event.target.value;
         let newState = this.state;
-        newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 1);
+        newState = ValidationFunctions.checkValidateWithSize(newState, value, dataname, 1);
         newState = ValidationFunctions.checkValidForm(newState);
         this.setState(newState);
     }
@@ -65,7 +63,7 @@ class FormQuestionnaire extends Component{
                             <InputField
                                 className={this.state.class.title}
                                 handleChange={this.handleChange}
-                                dataName="title"
+                                dataname="title"
                                 value={this.state.value.title}
                                 type="text"
                                 text="Titre du cours"
@@ -82,7 +80,7 @@ class FormQuestionnaire extends Component{
                             <TextareaField
                                 className={this.state.class.description}
                                 handleChange={this.handleChange}
-                                dataName="description"
+                                dataname="description"
                                 value={this.state.value.description}
                                 type="textarea"
                                 text="Description du cours"

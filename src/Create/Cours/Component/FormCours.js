@@ -54,22 +54,22 @@ class FormCours extends Component{
 
     handleChange(event) {
         let newState = this.state;
-        const dataName = event.target.getAttribute("dataname");
+        const dataname = event.target.getAttribute("dataname");
         let value = event.target.value;
 
-        switch(dataName){
+        switch(dataname){
             case "title":
-                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 1);
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataname, 1);
                 break;
             case "description":
-                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 1);
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataname, 1);
                 break;
             case "profName":
-                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataName, 1);
+                newState = ValidationFunctions.checkValidateWithSize(newState, value, dataname, 1);
                 break;
             case "avatarType":
                 value = event.target.getAttribute("valueInput");
-                newState = ValidationFunctions.saveValidateValue(newState, value, dataName);
+                newState = ValidationFunctions.saveValidateValue(newState, value, dataname);
                 break;
             default :
                 window.Materialize.toast("error", 3000);
@@ -130,7 +130,7 @@ class FormCours extends Component{
                             <InputField
                                 className={this.state.class.title}
                                 handleChange={this.handleChange}
-                                dataName="title"
+                                dataname="title"
                                 value={this.state.value.title}
                                 type="text"
                                 text="Titre du cours"
@@ -147,7 +147,7 @@ class FormCours extends Component{
                             <TextareaField
                                 className={this.state.class.description}
                                 handleChange={this.handleChange}
-                                dataName="description"
+                                dataname="description"
                                 value={this.state.value.description}
                                 type="textarea"
                                 text="Description du cours"
@@ -164,7 +164,7 @@ class FormCours extends Component{
                             <InputField
                                 className={this.state.class.profName}
                                 handleChange={this.handleChange}
-                                dataName="profName"
+                                dataname="profName"
                                 value={this.state.value.profName}
                                 type="text"
                                 text="Nom/Pseudonyme du professeur"
@@ -183,7 +183,7 @@ class FormCours extends Component{
                             labelClassName="low-margin-left"
                             handleChange={this.handleChange}
                             className={this.state.class.avatarType}
-                            dataName="avatarType"
+                            dataname="avatarType"
                             checked={this.state.value.avatarType}
                             values={["Homme", "Femme", "Perso"]}
                         />

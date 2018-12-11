@@ -6,7 +6,7 @@ class RadioButtonField extends Component{
         this.state = {
             handleChange : props.handleChange,
             className : props.className,
-            dataName : props.dataName,
+            dataname : props.dataname,
             values : props.values,
             checked : props.checked,
             labelClassName : props.labelClassName
@@ -17,7 +17,7 @@ class RadioButtonField extends Component{
         this.setState({
             handleChange: nextProps.handleChange,
             className: nextProps.className,
-            dataName: nextProps.dataName,
+            dataname: nextProps.dataname,
             values: nextProps.values,
             checked : nextProps.checked
         });
@@ -28,7 +28,7 @@ class RadioButtonField extends Component{
             <React.Fragment>
                 {this.state.values.map(value => (
                     <label className={this.state.labelClassName}>
-                        <input valueInput={value} className={this.state.className} dataname={this.state.dataName} type="radio" onChange={this.state.handleChange}
+                        <input valueInput={value} className={this.state.className} dataname={this.state.dataname} type="radio" onChange={this.state.handleChange}
                                checked={value === this.state.checked}
                         />
                         <span>{value}</span>

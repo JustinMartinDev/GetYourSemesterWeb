@@ -38,6 +38,10 @@ code {
     margin-bottom: 7px !important;
 }
 
+.low-margin-top {
+    margin-top: 7px !important;
+}
+
 .inline-content {
     display: inline-flex;
 }
@@ -175,4 +179,38 @@ main, footer {
 .un-margin-top-30{
     margin-top: -30px!important;
     margin-bottom: 0px!important;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-create-question {
+    max-height: 90% !important;
+    top: 5%!important;
+}
+
+.low-padding-bottom {
+    padding-bottom: 7px !important;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+
+.no-margin-left {
+    margin-left: 0!important;
+}
+
+.no-margin-right {
+    margin-right: 0 !important;
+}
+
+.mid-margin-bottom-45{
+    margin-bottom: 45px;
+}
+
+.position-absolute {
+    position: absolute;
 }

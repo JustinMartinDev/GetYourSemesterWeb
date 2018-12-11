@@ -1,39 +1,39 @@
-import React, {Component} from 'react'
-import {TextareaField, InputField, CheckBoxField} from "../../../Utils/Form";
-import * as ValidationFunctions from "../../../Utils/Form/ValidationFunctions";
+import React, {Component} from 'react';
 import {StateBox} from "../../../Utils/Utils";
+import {CheckBoxField, InputField, TextareaField} from "../../../Utils/Form";
+import * as ValidationFunctions from "../../../Utils/Form/ValidationFunctions";
 
-class FormQuestion extends Component{
+class FormQuestionModel extends Component{
     constructor(props) {
         super(props);
-
+        this.addFunctionParent = props.handleAddFunction;
         this.state = {
             value : {
-                questionTitle: props.questionValue.questionTitle,
+                questionTitle: "",
                 response: {
                     1: {
-                        responseText: props.questionValue.response[1].responseText,
-                        isAnswer: props.questionValue.response[1].isAnswer
+                        responseText: "",
+                        isAnswer: false
                     },
                     2: {
-                        responseText: props.questionValue.response[2].responseText,
-                        isAnswer: props.questionValue.response[2].isAnswer
+                        responseText: "",
+                        isAnswer: false
                     },
                     3: {
-                        responseText: props.questionValue.response[3].responseText,
-                        isAnswer: props.questionValue.response[3].isAnswer
+                        responseText: "",
+                        isAnswer: false
                     },
                     4: {
-                        responseText: props.questionValue.response[4].responseText,
-                        isAnswer: props.questionValue.response[4].isAnswer
+                        responseText: "",
+                        isAnswer: false
                     },
                     5: {
-                        responseText: props.questionValue.response[5].responseText,
-                        isAnswer: props.questionValue.response[5].isAnswer
+                        responseText: "",
+                        isAnswer: false
                     },
                     6: {
-                        responseText: props.questionValue.response[6].responseText,
-                        isAnswer: props.questionValue.response[6].isAnswer
+                        responseText: "",
+                        isAnswer: false
                     }
                 }
             },
@@ -65,9 +65,8 @@ class FormQuestion extends Component{
                 "Vous devez au moins indiquer une bonne réponse"
             ]
         };
+        this.baseState = this.state;
 
-        this.count = props.count;
-        this.parentChange = props.handleQuestion;
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -97,22 +96,19 @@ class FormQuestion extends Component{
         if(!newState.formValid)
             newState.messageInfo.push("Vous devez au moins entrer deux réponses");
 
-        newState.formValid &= FormQuestion.ValidNbAnswer(newState);
+        newState.formValid &= this.validNbAnswer(newState);
         if(!newState.formValid)
             newState.messageInfo.push("Vous devez au moins indiquer une bonne réponse");
 
         this.setState(newState);
 
-        if(newState.formValid)
-            this.parentChange(newState.value, this.count);
     }
 
-    static ValidNbAnswer(newState) {
+    validNbAnswer(newState) {
         let nb = 0;
         let size = 0;
 
         for(var property in newState.value.response) {
-            console.log(property);
             size++;
         }
 
@@ -125,29 +121,81 @@ class FormQuestion extends Component{
 
     }
 
-/*    showToastError = (event) => {
-        event.stopPropagation();
-        this.state.messageInfo.map(message =>{
-            window.Materialize.toast(message, 3000);
-        });
-    };*/
+    addFunction = () => {
+      this.addFunctionParent(this.state.value);
+      this.setState({
+          value : {
+              questionTitle: "",
+              response: {
+                  1: {
+                      responseText: "",
+                      isAnswer: false
+                  },
+                  2: {
+                      responseText: "",
+                      isAnswer: false
+                  },
+                  3: {
+                      responseText: "",
+                      isAnswer: false
+                  },
+                  4: {
+                      responseText: "",
+                      isAnswer: false
+                  },
+                  5: {
+                      responseText: "",
+                      isAnswer: false
+                  },
+                  6: {
+                      responseText: "",
+                      isAnswer: false
+                  }
+              }
+          },
+          class : {
+              questionTitle: "",
+              response: {
+                  1: "materialize-textarea ",
+                  2: "materialize-textarea ",
+                  3: "materialize-textarea ",
+                  4: "materialize-textarea ",
+                  5: "materialize-textarea ",
+                  6: "materialize-textarea "
+              }
+          },
+          valid : {
+              questionTitle: false,
+              response: {
+                  1: false,
+                  2: false,
+                  3: true,
+                  4: true,
+                  5: true,
+                  6: true
+              }
+          },
+          formValid : false,
+          messageInfo : [
+              "Vous devez au moins entrer deux réponses",
+              "Vous devez au moins indiquer une bonne réponse"
+          ]
+      });
+      document.getElementById("create-question-form").reset();
+    };
 
     render() {
-        const condError = (this.state.messageInfo.length === 0 ? "validate" : "error");
         return(
-            <li>
-                <div className="collapsible-header">
-                    <i className="material-icons">assignment</i>{this.state.questionTitle}
-                    <i className={(condError === "validate" ? "green-text" : "red-text") + " material-icons"} >{condError === "validate" ? "done_outline" : "error_outline"}</i>
-                </div>
-                <div className="collapsible-body bg-white">
+            <div className="modal bg-white modal-create-question" id="modal-question-create-form">
+                <div className="modal-content no-padding-bottom">
                     <div className="row un-margin-top-30">
                         <div className="col s8">
                             <StateBox
-                                valueElement={condError}
+                                valueElement={!this.state.formValid ? "error" : "noError"}
                                 valueConditionToShow="error"
                                 colSize="12"
                                 classColor="error-border state-box-col"
+                                classMargin = "mid-margin-bottom-45 position-absolute"
                                 icon="error"
                                 title="Error">
                                 <ul>
@@ -156,9 +204,19 @@ class FormQuestion extends Component{
                                     ))}
                                 </ul>
                             </StateBox>
+                            <StateBox
+                                classMargin="mid-margin-bottom-45"
+                                valueElement={this.state.formValid ? "validate" : "notValidate"}
+                                valueConditionToShow="validate"
+                                colSize="12"
+                                classColor="valid-border state-box-col"
+                                icon="check"
+                                title="Validate">
+                            </StateBox>
                         </div>
                     </div>
-                    <div className="row ">
+                    <form id="create-question-form">
+                        <div className="row">
                         <div className="col s8 input-field">
                             <InputField
                                 className={this.state.class.questionTitle}
@@ -319,10 +377,16 @@ class FormQuestion extends Component{
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
-            </li>
+                <div className="modal-footer">
+                    <span>
+                        <a href="#!" onClick={this.addFunction} className={"modal-close waves-effect waves-green btn-flat " + (!this.state.formValid ? " disabled" : "")}>Sauvegarder</a>
+                        <a href="#!" className="modal-close waves-effect btn-flat">Fermer</a>
+                    </span>
+                </div>
+            </div>
         )
     }
-
 }
-export default FormQuestion
+export default FormQuestionModel

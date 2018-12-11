@@ -8,7 +8,7 @@ class CheckBoxField extends Component{
             children : props.children,
             handleChange : props.handleChange,
             value : props.value,
-            dataName : props.dataName
+            dataname : props.dataname
         }
     }
 
@@ -18,7 +18,7 @@ class CheckBoxField extends Component{
                 children : nextProps.children,
                 handleChange : nextProps.handleChange,
                 value : nextProps.value,
-                dataName : nextProps.dataName
+                dataname : nextProps.dataname
             }
         );
     }
@@ -26,7 +26,7 @@ class CheckBoxField extends Component{
     render() {
         return (
             <label>
-                <input dataName={this.state.dataName} type="checkbox" onChange={this.state.handleChange} value={this.state.value}/>
+                <input dataname={this.state.dataname} type="checkbox" onChange={this.state.handleChange} value={this.state.value}/>
                 {this.state.children}
             </label>
         );

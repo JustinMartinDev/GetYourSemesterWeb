@@ -110,7 +110,6 @@ class FormQuestionModel extends Component{
 
         for(var property in newState.value.response) {
             size++;
-            console.log(property);
         }
 
         for(let i=1; i<size+1; i++) {
@@ -123,8 +122,8 @@ class FormQuestionModel extends Component{
     }
 
     addFunction = () => {
-   //     this.addFunctionParent(this.state.value);
-        document.getElementById("create-question-form").reset();
+       this.addFunctionParent(this.state.value);
+       document.getElementById("create-question-form").reset();
     };
 
     render() {
@@ -324,8 +323,8 @@ class FormQuestionModel extends Component{
                 </div>
                 <div className="modal-footer">
                     <span>
-                        <a href="#!" onClick={this.addFunction} className={"modal-close waves-effect waves-green btn-flat " + (!this.state.formValid ? " disabled" : "")}>Sauvegarder</a>
-                        <a href="#!" className="modal-close waves-effect btn-flat">Fermer</a>
+                        <a onClick={this.addFunction} className={"modal-close waves-effect waves-green btn-flat " + (!this.state.formValid ? " disabled" : "")}>Sauvegarder</a>
+                        <a className="modal-close waves-effect btn-flat">Fermer</a>
                     </span>
                 </div>
             </div>

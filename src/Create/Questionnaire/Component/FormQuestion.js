@@ -140,7 +140,7 @@ class FormQuestion extends Component{
     };*/
 
     render() {
-        console.log("call render");
+        console.log(this.state.value.questionTitle);
         const condError = (this.state.messageInfo.length === 0 ? "validate" : "error");
         return(
             <li>

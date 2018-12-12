@@ -110,6 +110,7 @@ class FormQuestionModel extends Component{
 
         for(var property in newState.value.response) {
             size++;
+            console.log(property);
         }
 
         for(let i=1; i<size+1; i++) {
@@ -122,66 +123,8 @@ class FormQuestionModel extends Component{
     }
 
     addFunction = () => {
-      this.addFunctionParent(this.state.value);
-      this.setState({
-          value : {
-              questionTitle: "",
-              response: {
-                  1: {
-                      responseText: "",
-                      isAnswer: false
-                  },
-                  2: {
-                      responseText: "",
-                      isAnswer: false
-                  },
-                  3: {
-                      responseText: "",
-                      isAnswer: false
-                  },
-                  4: {
-                      responseText: "",
-                      isAnswer: false
-                  },
-                  5: {
-                      responseText: "",
-                      isAnswer: false
-                  },
-                  6: {
-                      responseText: "",
-                      isAnswer: false
-                  }
-              }
-          },
-          class : {
-              questionTitle: "",
-              response: {
-                  1: "materialize-textarea ",
-                  2: "materialize-textarea ",
-                  3: "materialize-textarea ",
-                  4: "materialize-textarea ",
-                  5: "materialize-textarea ",
-                  6: "materialize-textarea "
-              }
-          },
-          valid : {
-              questionTitle: false,
-              response: {
-                  1: false,
-                  2: false,
-                  3: true,
-                  4: true,
-                  5: true,
-                  6: true
-              }
-          },
-          formValid : false,
-          messageInfo : [
-              "Vous devez au moins entrer deux réponses",
-              "Vous devez au moins indiquer une bonne réponse"
-          ]
-      });
-      document.getElementById("create-question-form").reset();
+   //     this.addFunctionParent(this.state.value);
+        document.getElementById("create-question-form").reset();
     };
 
     render() {
@@ -199,8 +142,8 @@ class FormQuestionModel extends Component{
                                 icon="error"
                                 title="Error">
                                 <ul>
-                                    {this.state.messageInfo.map(message=> (
-                                        <li>{message}</li>
+                                    {this.state.messageInfo.map((message, id)=> (
+                                        <li key={id}>{message}</li>
                                     ))}
                                 </ul>
                             </StateBox>

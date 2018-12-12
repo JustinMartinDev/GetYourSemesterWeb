@@ -11,18 +11,11 @@ class FormQuestionnaire extends Component{
             question : { }
         };
 
-        this.editMode = (props.editMode === "true");
-
-        if(this.editMode){
-            //todo get questionnaire id
-            //todo get data from this id
-        }
-
         this.state = {
             value : {
-                title : "",
-                description : "",
-                question : { }
+                title: "",
+                description: "",
+                question: []
             },
             class : {
                 title : "",
@@ -47,16 +40,15 @@ class FormQuestionnaire extends Component{
         this.setState(newState);
     }
 
-    validQuestions(question, valid){
-/*        const formValid = valid &= this.state.formValid;
+    invalidForm = () => {
         this.setState({
-            formValid : formValid
-        });*/
-    }
+            formValid : false
+        });
+    };
 
     render() {
         return (
-            <form className="wow fadeIn row">
+            <div className="wow fadeIn row">
                 <div className="col s10 offset-s3">
                     <div className="row low-margin-bottom">
                         <div className="col s8 input-field">
@@ -108,7 +100,7 @@ class FormQuestionnaire extends Component{
                         </button>
                     </div>
                 </div>
-            </form>
+            </div>
         );
     }
 }

@@ -7,7 +7,7 @@ class CheckBoxField extends Component{
         this.state = {
             children : props.children,
             handleChange : props.handleChange,
-            value : props.value,
+            defaultValue : props.hasOwnProperty("defaultvalue") ? props.defaultvalue : "",
             dataname : props.dataname
         }
     }
@@ -17,7 +17,7 @@ class CheckBoxField extends Component{
             {
                 children : nextProps.children,
                 handleChange : nextProps.handleChange,
-                value : nextProps.value,
+                defaultValue :  nextProps.hasOwnProperty("defaultvalue") ? nextProps.defaultvalue : "",
                 dataname : nextProps.dataname
             }
         );
@@ -26,7 +26,7 @@ class CheckBoxField extends Component{
     render() {
         return (
             <label>
-                <input dataname={this.state.dataname} type="checkbox" onChange={this.state.handleChange} value={this.state.value}/>
+                <input dataname={this.state.dataname} type="checkbox" onChange={this.state.handleChange} defaultValue={this.state.defaultValue}/>
                 {this.state.children}
             </label>
         );

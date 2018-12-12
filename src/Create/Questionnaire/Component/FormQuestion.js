@@ -7,7 +7,6 @@ class FormQuestion extends Component{
     constructor(props) {
         super(props);
 
-        console.log(props.questionValue);
         this.state = {
             value : {
                 questionTitle: props.questionValue.questionTitle,
@@ -69,10 +68,13 @@ class FormQuestion extends Component{
 
         this.count = props.count;
         this.parentChange = props.handleQuestion;
+        this.invalidForm = props.invalidForm;
         this.handleChange = this.handleChange.bind(this);
+        console.log("call construct question");
     }
 
     handleChange(event) {
+        console.log("call handle change question form");
         let dataname = event.target.getAttribute("dataname");
         let newState = this.state;
         const value = (event.target.hasOwnProperty("checked") ? event.target.checked : event.target.value);
@@ -102,10 +104,14 @@ class FormQuestion extends Component{
         if(!newState.formValid)
             newState.messageInfo.push("Vous devez au moins indiquer une bonne réponse");
 
+        console.log("change form question call");
         this.setState(newState);
 
         if(newState.formValid)
             this.parentChange(newState.value, this.count);
+
+        if(!newState.formValid)
+            this.invalidForm();
     }
 
     static ValidNbAnswer(newState) {
@@ -134,8 +140,8 @@ class FormQuestion extends Component{
     };*/
 
     render() {
+        console.log("call render");
         const condError = (this.state.messageInfo.length === 0 ? "validate" : "error");
-        console.log(this.state);
         return(
             <li>
                 <div className="collapsible-header">
@@ -153,8 +159,8 @@ class FormQuestion extends Component{
                                 icon="error"
                                 title="Error">
                                 <ul>
-                                    {this.state.messageInfo.map(message=> (
-                                        <li>{message}</li>
+                                    {this.state.messageInfo.map((message, id)=> (
+                                        <li key={id}>{message}</li>
                                     ))}
                                 </ul>
                             </StateBox>
@@ -182,7 +188,7 @@ class FormQuestion extends Component{
                                     className={this.state.class.response[1]}
                                     handleChange={this.handleChange}
                                     dataname="response1-responseText"
-                                    value={this.state.value.response[1].responseText}
+                                    defaultvalue={this.state.value.response[1].responseText}
                                     type="text"
                                     text="Réponse 1"
                                     id={"question-answer-"+((this.count*6)+1)}
@@ -196,7 +202,7 @@ class FormQuestion extends Component{
                                 <CheckBoxField
                                     handleChange={this.handleChange}
                                     dataname="response1-isAnswer"
-                                    value={this.state.value.response[2].isAnswer}>
+                                    defaultvalue={this.state.value.response[2].isAnswer}>
                                     <span></span>
                                 </CheckBoxField>
                             </div>
@@ -205,7 +211,7 @@ class FormQuestion extends Component{
                                     className={this.state.class.response[2]}
                                     handleChange={this.handleChange}
                                     dataname="response2-responseText"
-                                    value={this.state.value.response[2].responseText}
+                                    defaultvalue={this.state.value.response[2].responseText}
                                     type="text"
                                     text="Réponse 2"
                                     id={"question-answer-"+((this.count*6)+2)}
@@ -219,7 +225,7 @@ class FormQuestion extends Component{
                                 <CheckBoxField
                                     handleChange={this.handleChange}
                                     dataname="response2-isAnswer"
-                                    value={this.state.value.response[2].isAnswer}>
+                                    defaultvalue={this.state.value.response[2].isAnswer}>
                                     <span></span>
                                 </CheckBoxField>
                             </div>
@@ -230,7 +236,7 @@ class FormQuestion extends Component{
                                     className={this.state.class.response[3]}
                                     handleChange={this.handleChange}
                                     dataname="response3-responseText"
-                                    value={this.state.value.response[3].responseText}
+                                    defaultvalue={this.state.value.response[3].responseText}
                                     type="text"
                                     text="Réponse 3"
                                     id={"question-answer-"+((this.count*6)+3)}
@@ -244,7 +250,7 @@ class FormQuestion extends Component{
                                 <CheckBoxField
                                     handleChange={this.handleChange}
                                     dataname="response3-isAnswer"
-                                    value={this.state.value.response[2].isAnswer}>
+                                    defaultvalue={this.state.value.response[2].isAnswer}>
                                     <span></span>
                                 </CheckBoxField>
                             </div>
@@ -253,7 +259,7 @@ class FormQuestion extends Component{
                                     className={this.state.class.response[4]}
                                     handleChange={this.handleChange}
                                     dataname="response4-responseText"
-                                    value={this.state.class.response[4].responseText}
+                                    defaultvalue={this.state.class.response[4].responseText}
                                     type="text"
                                     text="Réponse 4"
                                     id={"question-answer-"+((this.count*6)+4)}
@@ -267,7 +273,7 @@ class FormQuestion extends Component{
                                 <CheckBoxField
                                     handleChange={this.handleChange}
                                     dataname="response4-isAnswer"
-                                    value={this.state.value.response[2].isAnswer}>
+                                    defaultvalue={this.state.value.response[2].isAnswer}>
                                     <span></span>
                                 </CheckBoxField>
                             </div>
@@ -278,7 +284,7 @@ class FormQuestion extends Component{
                                     className={this.state.class.response[5]}
                                     handleChange={this.handleChange}
                                     dataname="response5-responseText"
-                                    value={this.state.class.response[5].responseText}
+                                    defaultvalue={this.state.class.response[5].responseText}
                                     type="text"
                                     text="Réponse 5"
                                     id={"question-answer-"+((this.count*6)+5)}
@@ -292,7 +298,7 @@ class FormQuestion extends Component{
                                 <CheckBoxField
                                     handleChange={this.handleChange}
                                     dataname="response5-isAnswer"
-                                    value={this.state.value.response[2].isAnswer}>
+                                    defaultvalue={this.state.value.response[2].isAnswer}>
                                     <span></span>
                                 </CheckBoxField>
                             </div>
@@ -301,7 +307,7 @@ class FormQuestion extends Component{
                                     className={this.state.class.response[6]}
                                     handleChange={this.handleChange}
                                     dataname="response6-responseText"
-                                    value={this.state.class.response[6].responseText}
+                                    defaultvalue={this.state.class.response[6].responseText}
                                     type="text"
                                     text="Réponse 6"
                                     id={"question-answer-"+((this.count*6)+6)}
@@ -315,7 +321,7 @@ class FormQuestion extends Component{
                                 <CheckBoxField
                                     handleChange={this.handleChange}
                                     dataname="response6-isAnswer"
-                                    value={this.state.value.response[2].isAnswer}>
+                                    defaultvalue={this.state.value.response[2].isAnswer}>
                                     <span></span>
                                 </CheckBoxField>
                             </div>

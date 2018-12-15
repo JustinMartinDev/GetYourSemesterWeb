@@ -70,7 +70,6 @@ class FormQuestion extends Component{
         this.parentChange = props.handleQuestion;
         this.invalidForm = props.invalidForm;
         this.handleChange = this.handleChange.bind(this);
-        console.log("call construct question");
     }
 
     handleChange(event) {
@@ -140,7 +139,6 @@ class FormQuestion extends Component{
     };*/
 
     render() {
-        console.log(this.state.value.questionTitle);
         const condError = (this.state.messageInfo.length === 0 ? "validate" : "error");
         return(
             <li>
@@ -180,6 +178,7 @@ class FormQuestion extends Component{
                                 textHelper="Entrez un titre"
                                 textSuccess="titre valide"
                                 textError="Ce champ ne peut être vide"
+                                shouldLoadVerif={true}
                             />
                         </div>
                         <div className="row">

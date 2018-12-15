@@ -45,7 +45,6 @@ class ListeQuestionnaire extends Component{
     };
 
     render() {
-        console.log("render liste");
         return (
             <div>
                 <ul className="collapsible popout questionnaire">
